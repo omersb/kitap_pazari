@@ -5,7 +5,7 @@ from django.db import models
 class Kitap(models.Model):
     isim = models.CharField(max_length=255)
     yazar = models.CharField(max_length=255)
-    aciklama = models.TextField(blak=True, null=True)
+    aciklama = models.TextField(blank=True, null=True)
 
     yaratilma_tarihi = models.DateTimeField(auto_now_add=True)
     güncellenme_tarihi = models.DateTimeField(auto_now=True)
@@ -29,4 +29,4 @@ class Yorum(models.Model):
     )
 
     def __str__(self):
-        return str(self.degerlendirme)
+        return f'{self.yorum_sahibi} - {self.degerlendirme}'
